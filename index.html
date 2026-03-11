@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+<meta name="description" content="Daawat-e-Nizam — Authentic Hyderabadi Catering. Coming Soon to Altrincham & Greater Manchester." />
+<title>Daawat-e-Nizam | Coming Soon</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;600;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --saffron:    #E8871E;
+    --gold:       #C9A84C;
+    --deep-gold:  #A07830;
+    --maroon:     #6B1A1A;
+    --deep-maroon:#3D0E0E;
+    --cream:      #FFF5E6;
+    --charcoal:   #1A1008;
+    --smoke:      #F5E8D0;
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    min-height: 100vh;
+    background: var(--charcoal);
+    color: var(--cream);
+    font-family: 'EB Garamond', Georgia, serif;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── BG ── */
+  .bg-layer {
+    position: fixed; inset: 0; z-index: 0;
+    background:
+      linear-gradient(to bottom,
+        rgba(26,16,8,0.82) 0%,
+        rgba(26,16,8,0.60) 40%,
+        rgba(26,16,8,0.88) 100%),
+      url('https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=1800&q=85') center/cover no-repeat;
+    animation: bgZoom 20s ease-in-out infinite alternate;
+  }
+  @keyframes bgZoom {
+    from { transform: scale(1.0); }
+    to   { transform: scale(1.07); }
+  }
+
+  /* ── GRAIN OVERLAY ── */
+  .grain {
+    position: fixed; inset: 0; z-index: 1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  /* ── MAIN WRAPPER ── */
+  .wrapper {
+    position: relative; z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+
+  /* ── DEV BADGE ── */
+  .dev-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(107,26,26,0.6);
+    border: 1px solid rgba(201,168,76,0.5);
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 0.45rem 1.2rem;
+    margin-bottom: 2.5rem;
+    animation: fadeDown 1s ease 0.2s both;
+  }
+  .dev-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--saffron);
+    animation: blink 1.4s ease-in-out infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
+
+  /* ── LOGO ── */
+  .logo {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    font-weight: 900;
+    color: var(--cream);
+    letter-spacing: 0.05em;
+    line-height: 1;
+    animation: fadeDown 1s ease 0.4s both;
+    text-shadow: 0 4px 40px rgba(0,0,0,0.5);
+  }
+  .logo span { color: var(--gold); }
+
+  .logo-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: var(--saffron);
+    letter-spacing: 0.15em;
+    margin-top: 0.4rem;
+    animation: fadeDown 1s ease 0.55s both;
+  }
+
+  /* ── ORNAMENT ── */
+  .ornament {
+    display: flex; align-items: center; gap: 1.2rem;
+    margin: 2rem auto;
+    max-width: 340px;
+    animation: fadeDown 1s ease 0.65s both;
+  }
+  .ornament::before, .ornament::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+  .ornament-icon { color: var(--gold); font-size: 1rem; letter-spacing: 0.3em; }
+
+  /* ── HEADLINE ── */
+  .headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 4.5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.3;
+    max-width: 700px;
+    animation: fadeDown 1s ease 0.7s both;
+  }
+  .headline span { color: var(--gold); }
+
+  .tagline {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: rgba(255,245,230,0.7);
+    line-height: 1.8;
+    max-width: 560px;
+    margin: 1.2rem auto 0;
+    animation: fadeDown 1s ease 0.85s both;
+  }
+
+  /* ── BADGES ── */
+  .badges {
+    display: flex; flex-wrap: wrap;
+    justify-content: center; gap: 0.7rem;
+    margin: 2rem 0;
+    animation: fadeDown 1s ease 0.95s both;
+  }
+  .badge {
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold);
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.4rem 1.1rem;
+    font-family: 'EB Garamond', serif;
+  }
+
+  /* ── COUNTDOWN ── */
+  .countdown-wrap {
+    margin: 2.5rem 0 2rem;
+    animation: fadeDown 1s ease 1.05s both;
+  }
+  .countdown-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.35em;
+    color: rgba(255,245,230,0.45);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .count-item {
+    min-width: 80px;
+  }
+  .count-num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1;
+    text-shadow: 0 0 30px rgba(201,168,76,0.3);
+    transition: color 0.3s;
+  }
+  .count-num.flash { color: var(--saffron); }
+  .count-sep {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 900;
+    color: var(--gold); opacity: 0.5;
+    align-self: flex-start;
+    padding-top: 0.2rem;
+    animation: sepPulse 1s ease-in-out infinite;
+  }
+  @keyframes sepPulse { 0%,100%{opacity:0.5;} 50%{opacity:0.15;} }
+  .count-unit {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-top: 0.3rem;
+    opacity: 0.8;
+  }
+
+  /* ── NOTIFY FORM ── */
+  .notify-wrap {
+    width: 100%; max-width: 480px;
+    margin: 0 auto 2.5rem;
+    animation: fadeDown 1s ease 1.15s both;
+  }
+  .notify-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem; letter-spacing: 0.25em;
+    color: rgba(255,245,230,0.5); text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .notify-form {
+    display: flex; gap: 0;
+    border: 1px solid rgba(201,168,76,0.4);
+    overflow: hidden;
+  }
+  .notify-form input {
+    flex: 1;
+    background: rgba(255,245,230,0.07);
+    border: none; outline: none;
+    color: var(--cream);
+    padding: 0.95rem 1.2rem;
+    font-family: 'EB Garamond', serif; font-size: 1rem;
+  }
+  .notify-form input::placeholder { color: rgba(255,245,230,0.35); }
+  .notify-form button {
+    background: var(--maroon);
+    color: var(--gold);
+    border: none;
+    padding: 0.95rem 1.5rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.3s;
+  }
+  .notify-form button:hover { background: var(--gold); color: var(--charcoal); }
+  .notify-success {
+    display: none;
+    margin-top: 0.8rem;
+    color: var(--gold);
+    font-style: italic;
+    font-size: 1.05rem;
+  }
+
+  /* ── CTA BUTTONS ── */
+  .cta-row {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeDown 1s ease 1.25s both;
+    margin-bottom: 3rem;
+  }
+  .btn-wa {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: #25D366; color: #fff;
+    padding: 0.9rem 1.8rem;
+    font-family: 'Cinzel', serif; font-size: 0.8rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+  .btn-wa:hover { background: #1ebe5c; box-shadow: 0 0 25px rgba(37,211,102,0.5); }
+  .btn-enquire {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: transparent; color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 0.9rem 1.8rem;
+    font-family: 'Cinzel', serif; font-size: 0.8rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+  }
+  .btn-enquire:hover { background: var(--gold); color: var(--charcoal); }
+
+  /* ── INFO STRIP ── */
+  .info-strip {
+    display: flex; flex-wrap: wrap;
+    justify-content: center; gap: 2.5rem;
+    border-top: 1px solid rgba(201,168,76,0.2);
+    padding-top: 2.5rem;
+    animation: fadeDown 1s ease 1.35s both;
+  }
+  .info-item { text-align: center; }
+  .info-icon { font-size: 1.6rem; margin-bottom: 0.4rem; }
+  .info-item h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem; letter-spacing: 0.2em;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+  .info-item p { font-size: 0.97rem; color: rgba(255,245,230,0.65); }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative; z-index: 2;
+    text-align: center;
+    padding: 1.5rem;
+    border-top: 1px solid rgba(255,245,230,0.07);
+    color: rgba(255,245,230,0.28);
+    font-size: 0.85rem;
+  }
+  footer span { color: var(--saffron); }
+
+  /* ── PROGRESS BAR ── */
+  .progress-wrap {
+    width: 100%; max-width: 420px;
+    margin: 0 auto 2.5rem;
+    animation: fadeDown 1s ease 1.1s both;
+  }
+  .progress-label {
+    display: flex; justify-content: space-between;
+    font-family: 'Cinzel', serif; font-size: 0.65rem;
+    letter-spacing: 0.2em; color: rgba(255,245,230,0.4);
+    text-transform: uppercase; margin-bottom: 0.5rem;
+  }
+  .progress-bar {
+    height: 3px;
+    background: rgba(255,245,230,0.1);
+    border-radius: 0;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--maroon), var(--gold), var(--saffron));
+    width: 0%;
+    animation: fillBar 2.5s ease 1.5s forwards;
+  }
+  @keyframes fillBar { to { width: 72%; } }
+
+  /* ── SOCIAL ── */
+  .social-row {
+    display: flex; justify-content: center; gap: 1rem;
+    margin-top: 2rem;
+    animation: fadeDown 1s ease 1.45s both;
+  }
+  .social-link {
+    width: 42px; height: 42px;
+    border: 1px solid rgba(201,168,76,0.35);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); text-decoration: none; font-size: 1.1rem;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .social-link:hover { background: rgba(201,168,76,0.15); border-color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 540px) {
+    .notify-form { flex-direction: column; }
+    .notify-form button { padding: 0.9rem; }
+    .cta-row { flex-direction: column; align-items: center; }
+    .countdown { gap: 1rem; }
+    .count-sep { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Background -->
+<div class="bg-layer"></div>
+<div class="grain"></div>
+
+<!-- Main -->
+<div class="wrapper">
+
+  <!-- Dev badge -->
+  <div class="dev-badge">
+    <div class="dev-dot"></div>
+    Under Development — Coming Soon
+  </div>
+
+  <!-- Logo -->
+  <div class="logo">Daawat<span>-e-</span>Nizam</div>
+  <div class="logo-subtitle">The Royal Hyderabadi Feast</div>
+
+  <!-- Ornament -->
+  <div class="ornament">
+    <span class="ornament-icon">✦ &nbsp; ✦ &nbsp; ✦</span>
+  </div>
+
+  <!-- Headline -->
+  <h1 class="headline">
+    Something <span>Extraordinary</span><br>Is Being Prepared
+  </h1>
+  <p class="tagline">
+    Authentic Hyderabadi Dum Biryani, Haleem & a royal full-course catering experience
+    — coming soon to <strong style="color:var(--cream)">Altrincham & Greater Manchester</strong>.
+  </p>
+
+  <!-- Badges -->
+  <div class="badges">
+    <span class="badge">🧈 Asli Desi Ghee</span>
+    <span class="badge">🌿 Authentic Masalas</span>
+    <span class="badge">🔥 Dum Pukht Cooked</span>
+    <span class="badge">📍 Altrincham, Manchester</span>
+  </div>
+
+  <!-- Countdown -->
+  <div class="countdown-wrap">
+    <div class="countdown-label">Website launches in</div>
+    <div class="countdown">
+      <div class="count-item">
+        <div class="count-num" id="cd-days">--</div>
+        <div class="count-unit">Days</div>
+      </div>
+      <div class="count-sep">:</div>
+      <div class="count-item">
+        <div class="count-num" id="cd-hours">--</div>
+        <div class="count-unit">Hours</div>
+      </div>
+      <div class="count-sep">:</div>
+      <div class="count-item">
+        <div class="count-num" id="cd-mins">--</div>
+        <div class="count-unit">Minutes</div>
+      </div>
+      <div class="count-sep">:</div>
+      <div class="count-item">
+        <div class="count-num" id="cd-secs">--</div>
+        <div class="count-unit">Seconds</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Progress -->
+  <div class="progress-wrap">
+    <div class="progress-label">
+      <span>Development Progress</span>
+      <span>72%</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+  </div>
+
+  <!-- Notify Form -->
+  <div class="notify-wrap">
+    <div class="notify-label">🔔 Get notified the moment we launch</div>
+    <div class="notify-form">
+      <input type="email" id="notifyEmail" placeholder="Your email address..." />
+      <button onclick="handleNotify()">Notify Me</button>
+    </div>
+    <div class="notify-success" id="notifySuccess">
+      ✦ Shukria! We'll let you know the moment we're live, In sha Allah.
+    </div>
+  </div>
+
+  <!-- CTA Buttons -->
+  <div class="cta-row">
+    <a href="https://wa.me/447700900123?text=Salaam!%20I%20saw%20your%20coming%20soon%20page%20and%20would%20like%20to%20enquire%20about%20catering%20for%20my%20event%20in%20Manchester."
+       class="btn-wa" target="_blank">
+      💬 &nbsp; WhatsApp Us Now
+    </a>
+    <a href="mailto:info@daawatenizam.co.uk?subject=Catering%20Enquiry%20-%20Daawat-e-Nizam"
+       class="btn-enquire">
+      ✉️ &nbsp; Send Enquiry
+    </a>
+  </div>
+
+  <!-- Info Strip -->
+  <div class="info-strip">
+    <div class="info-item">
+      <div class="info-icon">📍</div>
+      <h4>Based In</h4>
+      <p>Altrincham, Greater Manchester</p>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">🚐</div>
+      <h4>We Deliver To</h4>
+      <p>All of Greater Manchester</p>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">🍽️</div>
+      <h4>Capacity</h4>
+      <p>Up to 40 guests (larger on request)</p>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">📞</div>
+      <h4>Call / WhatsApp</h4>
+      <p>+44 7700 900 123</p>
+    </div>
+  </div>
+
+  <!-- Social -->
+  <div class="social-row">
+    <a href="#" class="social-link" title="Facebook">𝑓</a>
+    <a href="#" class="social-link" title="Instagram">◻</a>
+    <a href="#" class="social-link" title="WhatsApp">💬</a>
+  </div>
+
+</div><!-- /wrapper -->
+
+<footer>
+  © 2025 <span>Daawat-e-Nizam</span> &nbsp;·&nbsp; Altrincham's Authentic Hyderabadi Catering &nbsp;·&nbsp; Greater Manchester
+</footer>
+
+<script>
+  // ── COUNTDOWN ──
+  // Set your launch date here (YYYY, MM-1, DD, HH, MM, SS)
+  const launchDate = new Date(2025, 3, 25, 10, 0, 0); // April 25 2025 — change to your real date
+
+  function updateCountdown() {
+    const now  = new Date();
+    const diff = launchDate - now;
+
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent  = '00';
+      document.getElementById('cd-hours').textContent = '00';
+      document.getElementById('cd-mins').textContent  = '00';
+      document.getElementById('cd-secs').textContent  = '00';
+      return;
+    }
+
+    const days  = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs  = Math.floor((diff % (1000 * 60)) / 1000);
+
+    const pad = n => String(n).padStart(2, '0');
+
+    const secEl = document.getElementById('cd-secs');
+    secEl.classList.add('flash');
+    setTimeout(() => secEl.classList.remove('flash'), 300);
+
+    document.getElementById('cd-days').textContent  = pad(days);
+    document.getElementById('cd-hours').textContent = pad(hours);
+    document.getElementById('cd-mins').textContent  = pad(mins);
+    secEl.textContent = pad(secs);
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ── NOTIFY ──
+  function handleNotify() {
+    const email = document.getElementById('notifyEmail').value.trim();
+    if (!email || !email.includes('@')) {
+      document.getElementById('notifyEmail').style.borderBottom = '2px solid #E8871E';
+      document.getElementById('notifyEmail').placeholder = 'Please enter a valid email...';
+      return;
+    }
+    document.getElementById('notifySuccess').style.display = 'block';
+    document.getElementById('notifyEmail').style.display   = 'none';
+    document.querySelector('.notify-form button').style.display = 'none';
+  }
+</script>
+</body>
+</html>
